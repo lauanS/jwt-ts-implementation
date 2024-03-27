@@ -1,0 +1,11 @@
+{
+  "name": "classic-asp-jwt-to-nodejs",
+  "version": "1.0.0",
+  "description": "A JWT implementation in Classic ASP refactored for Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lauanS",
+  "license": "MIT"
+}
