@@ -1,9 +1,9 @@
-import { base64Encode, dictionaryToJSONString } from '@/utils';
+import { SHA256SignAndEncode, base64Encode, dictionaryToJSONString } from '@/utils';
 
 describe('base64Encode function', () => {
   it('Should encode a string to base64', () => {
     const input = 'Hello, World!';
-    const expectedOutput = 'SGVsbG8sIFdvcmxkIQ==';
+    const expectedOutput = 'SGVsbG8sIFdvcmxkIQ';
     const encodedString = base64Encode(input);
 
     expect(encodedString).toEqual(expectedOutput);
@@ -19,7 +19,7 @@ describe('base64Encode function', () => {
 
   it('Should handle special characters', () => {
     const input = 'çãú.ø@#123';
-    const expectedOutput = 'w6fDo8O6LsO4QCMxMjM=';
+    const expectedOutput = 'w6fDo8O6LsO4QCMxMjM';
     const encodedString = base64Encode(input);
 
     expect(encodedString).toEqual(expectedOutput);

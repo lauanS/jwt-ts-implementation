@@ -6,7 +6,7 @@ export type SerializedValue = SerializedPrimitive | SerializedPrimitive[] | {
 
 export function base64Encode(input: string): string {
   const buffer = Buffer.from(input);
-  return buffer.toString('base64');
+  return buffer.toString('base64url');;
 }
 
 export function dictionaryToJSONString(dictionary: SerializedValue): string {

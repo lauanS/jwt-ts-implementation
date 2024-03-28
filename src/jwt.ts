@@ -7,7 +7,10 @@ export function JWTEncode(payload: SerializedValue, secret: string) {
   const stringifiedPayload = dictionaryToJSONString(payload);
   const stringifiedHeader = dictionaryToJSONString(JWTHeaderDictionary);
 
-  const base64Content = base64Encode(stringifiedPayload + '.' + stringifiedHeader);
+  const base64Payload = base64Encode(stringifiedPayload);
+  const base64Header = base64Encode(stringifiedHeader);
+
+  const base64Content = base64Header + '.' + base64Payload;
 
   const signature = SHA256SignAndEncode(base64Content, secret);
 
