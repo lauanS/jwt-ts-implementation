@@ -19,7 +19,7 @@ describe('base64Encode function', () => {
 
   it('Should handle special characters', () => {
     const input = 'çãú.ø@#123';
-    const expectedOutput = 'w6PDqcOuQEojMTIz';
+    const expectedOutput = 'w6fDo8O6LsO4QCMxMjM=';
     const encodedString = base64Encode(input);
 
     expect(encodedString).toEqual(expectedOutput);
