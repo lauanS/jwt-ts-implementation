@@ -1,8 +1,14 @@
-export function base64Enconde(input: any) {
+export type SerializedPrimitive = string | number | boolean | null | undefined;
 
+export type SerializedValue = SerializedPrimitive | SerializedPrimitive[] | {
+  [key: string]: SerializedPrimitive;
+};
+
+export function base64Enconde(input: string): string {
+  return '';
 }
 
-function dictionaryToJSONString(input: any) {
-
+export function dictionaryToJSONString(dictionary: SerializedValue): string {
+  return '';
 }
 
