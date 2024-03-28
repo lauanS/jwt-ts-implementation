@@ -10,6 +10,6 @@ export function base64Encode(input: string): string {
 }
 
 export function dictionaryToJSONString(dictionary: SerializedValue): string {
-  return '';
+  return JSON.stringify(dictionary);
 }
 
