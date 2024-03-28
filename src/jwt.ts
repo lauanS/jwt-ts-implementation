@@ -1,7 +1,10 @@
 import { base64Encode, dictionaryToJSONString, SHA256SignAndEncode }  from '@/utils';
 import type { SerializedValue } from '@/utils';
 
-const JWTHeaderDictionary = {};
+const JWTHeaderDictionary = {
+  alg: 'HS256',
+  typ: 'JWT'
+};
 
 export function JWTEncode(payload: SerializedValue, secret: string) {
   const stringifiedPayload = dictionaryToJSONString(payload);
