@@ -1,3 +1,5 @@
+import { createHmac } from "crypto";
+
 export type SerializedPrimitive = string | number | boolean | null | undefined;
 
 export type SerializedValue = SerializedPrimitive | SerializedPrimitive[] | {
@@ -14,5 +16,8 @@ export function dictionaryToJSONString(dictionary: SerializedValue): string {
 }
 
 export function SHA256SignAndEncode(payload: string, secret: string): string {
-  return '';
+  const hmac = createHmac('SHA256', secret);
+  const decodedString = hmac.update(payload).digest('base64url');
+
+  return decodedString
 }
