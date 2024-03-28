@@ -4,7 +4,7 @@ export type SerializedValue = SerializedPrimitive | SerializedPrimitive[] | {
   [key: string]: SerializedPrimitive;
 };
 
-export function base64Enconde(input: string): string {
+export function base64Encode(input: string): string {
   return '';
 }
 
