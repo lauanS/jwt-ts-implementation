@@ -48,3 +48,51 @@ describe('dictionaryToJSONString function', () => {
     expect(jsonString).toEqual(expectedOutput);
   });
 });
+
+describe('SHA256SignAndEncode function', () => {
+  it('Should sign and encode the payload using SHA256 and secret key equal implementation in Classic ASP', () => {
+    /*
+      { name: 'lauan' }
+    */
+    const payload = 'ew0KICAgICJ0eXAiOiAiSldUIiwNCiAgICAiYWxnIjogIkhTMjU2Ig0KfQ.ew0KICAgICJuYW1lIjogImxhdWFuIg0KfQ'
+    
+    const secret = 'SharedSecret';
+
+    const expectedOutput = 'UhHNOciuNbDfAkNXe1VOXwlXlF4DzXZLgNvv_5WEI3A';
+    const encodedString = SHA256SignAndEncode(payload, secret);
+
+    expect(encodedString).toEqual(expectedOutput);    
+  });
+
+  it('Should sign and encode the payload equal implementation in jwt.io', () => {
+    /*
+      { name: 'lauan' }
+    */
+    const payload = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoibGF1YW4ifQ'
+    
+    const secret = 'SharedSecret';
+
+    const expectedOutput = 'ycvBDqJDFVisJ7CIpAP3SLWL7gfCENBIePlcChfcqnw';
+    const encodedString = SHA256SignAndEncode(payload, secret);
+
+    expect(encodedString).toEqual(expectedOutput);    
+  });
+
+  it('Should works equal the default example on jwt.io', () => {
+    /*
+      {
+        "sub": "1234567890",
+        "name": "John Doe",
+        "iat": 1516239022
+      }
+    */
+    const payload = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ'
+    
+    const secret = 'your-256-bit-secret';
+
+    const expectedOutput = 'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+    const encodedString = SHA256SignAndEncode(payload, secret);
+
+    expect(encodedString).toEqual(expectedOutput);    
+  });
+});
